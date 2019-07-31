@@ -1,0 +1,59 @@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://api.zerynth.com/zadm/latest/z.js"></script>
+    <script src="myscript.js"></script>
+</head>
+
+<body onmouseover="is_saved()">
+    <div id="welcome">
+       MAKE A CHOICE
+    </div>
+    
+    
+        <div class="image_picker_image" id="img1">
+            
+            <img src="interno.png"  onclick="picked_image(1)">
+
+        </div>
+
+        <div class="image_picker_image" id="img2">
+
+            <img src="esterno.jpg"  onclick="picked_image(2)">
+        
+        </div>
+
+        <div class="image_picker_image" id="img3" >
+                <img src="grasse.jpg"  onclick="picked_image(3)">
+
+        </div>
+
+    
+
+    
+        <button id="confirm_button" onclick="location.href = 'plant-home.html';send_type_plant()" disabled>CONFIRM</button>
+    
+
+
+
+
+
+
+
+        <script>
+            // After loading the page, call the
+            // initialize() function
+            $(function () {
+                init();
+            });
+         </script>
+</body>
+
+
+
+
+
+
+
+</html>

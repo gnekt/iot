@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Test of Zerynth App</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="circle.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://api.zerynth.com/zadm/latest/z.js"></script>
+    <script src="myscript.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.min.js" type="text/javascript"></script>
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  </head>
+  <body >
+      <div class="header">
+          <div id="title">
+                Plant Garden
+          </div>
+      </div>
+
+
+        <div id="hum_soil"> 
+        <!-- <div id="umidita_terreno" class="donut-size">
+            <div class="pie-wrapper">
+              <span class="label">
+                <span class="num">0</span><span class="smaller">%</span>
+              </span>
+              <div class="pie">
+                <div class="left-side half-circle"></div>
+                <div class="right-side half-circle"></div>
+              </div>
+              <div class="shadow"></div>
+            </div>
+          </div> -->
+          <div id="umidita_terreno" class="c100 p0 orange">
+              <span id="span_terreno"></span>
+              <div class="slice">
+                  <div class="bar"></div>
+                  <div class="fill"></div>
+              </div>
+          </div>
+          <div class="info_label_hum_soil">Soil Moisture</div>
+        </div> 
+
+      <div id="hum_ambiente"> 
+          <div id="umidita_ambiente" class="c100 p0 green">
+              <span id="span_ambiente"></span>
+              <div class="slice">
+                  <div class="bar"></div>
+                  <div class="fill"></div>
+              </div>
+          </div>
+        <div class="info_label_hum">Ambient Humidity</div>
+     </div> 
+
+      <div id="temperature">
+        <div id="grad_text">
+          10°c
+        </div>
+      </div>
+
+      <div id="water_level">
+
+          <img src="goccia_acqua.png" id="img_acqua">
+          <img src="allarme.png" id="allarme">
+          
+          
+          <img src="off.png" id="off" >
+          <img src="on.png" id="on" >
+          <img src="annaffia.png" id="annaffia" >
+      </div>
+
+      <div id="photoresistor">
+        <div class="outer-wrapper">
+          <div class="column-wrapper">
+            <div class="column"></div>
+          </div>
+        </div>
+        <div class="info_label">LIGHT</div>
+      </div>
+
+
+      
+        <label class="switch" >
+          <input type="checkbox">
+          <span class="slider round" onclick="manual_mode_switch()"></span>
+        </label>
+      <div id="manual_mode" >
+          <label>MANUAL MODE</label>
+          
+      </div>
+      <img src="reload.png" onclick="reload()" id="reload">
+      <script>
+         // After loading the page, call the
+         // initialize() function
+         $(function () {
+             initialize();
+         });
+      </script>
+  </body>
+</html>

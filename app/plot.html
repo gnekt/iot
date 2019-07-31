@@ -1,0 +1,123 @@
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <title>Zerynth</title>
+        <!-- LOAD JQUERY AND BOOTSTRAP -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <!-- LOAD THE ZERYNTH ADM JS LIBRARY -->
+        <script src="https://api.zerynth.com/zadm/latest/z.js"></script> 
+        <!-- LOAD Flot.js -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/flot/0.8.3/jquery.flot.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.min.js" type="text/javascript"></script>
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    </head>        
+    <body onload="init();">
+        <!-- <div style="text-align:center">
+            <p id="status" style="background:#ddd;font-weight:bold"></p>
+            <h1>Oscilloscope</h1>
+            <div id="updating-chart" style="height:300px"></div>
+        </div> -->
+        <div id="myDiv" style="width:100%;height:95%;"></div>
+        <script>
+            
+            var light = {
+                    x: [],
+                    y: [],
+                    type: 'scatter',
+                    name:'Light'
+            };
+            var hum = {
+                    x: [],
+                    y: [],
+                    type: 'scatter',
+                    name: 'Soil Humidity'
+            };
+             
+            
+            var client = new Paho.MQTT.Client("broker.hivemq.com",8000,"pc");
+            var options = {
+                //connection attempt timeout in seconds
+                timeout: 3,
+                onSuccess: function(){
+                    console.log("success");
+                    client.subscribe("UNISA/IOT/Gruppo_17/light",{qos:1});
+                    client.subscribe("UNISA/IOT/Gruppo_17/hum",{qos:1});
+                    client.subscribe("UNISA/IOT/Gruppo_17/hum_amb",{qos:1});
+                    client.subscribe("UNISA/IOT/Gruppo_17/temp",{qos:1});
+                },
+                onFailure: function(message){
+                    console.log("disconnected");
+                }
+
+               };
+
+            client.onMessageArrived = paint_plot;
+              
+              function init(){
+                  client.connect(options);
+              }
+
+              function paint_plot(message){
+                console.log(message);
+                switch(message.destinationName){
+                    case 'UNISA/IOT/Gruppo_17/light':
+                        light.x.push(light.y.length);
+                        light.y.push(message.payloadString);
+                    break;
+
+                    case 'UNISA/IOT/Gruppo_17/hum':
+                        hum.x.push(hum.y.length);
+                        hum.y.push(message.payloadString);
+                    break;
+
+                    
+                }
+                var data = [ light, hum];
+                var layout = {
+                                title: {
+                                    text:'Live MOnitor',
+                                    font: {
+                                    family: 'Courier New, monospace',
+                                    size: 24
+                                    },
+                                    xref: 'paper',
+                                    x: 0.05,
+                                },
+                                xaxis: {
+                                    title: {
+                                    text: 'Measure',
+                                    font: {
+                                        family: 'Courier New, monospace',
+                                        size: 18,
+                                        color: '#7f7f7f'
+                                    }
+                                    },
+                                },
+                                yaxis: {
+                                    title: {
+                                    text: 'Value (%)',
+                                    font: {
+                                        family: 'Courier New, monospace',
+                                        size: 18,
+                                        color: '#7f7f7f'
+                                          }
+                                    }
+                                }
+                        };
+                Plotly.newPlot('myDiv', data,layout);
+              }
+              function init(){
+                  client.connect(options);
+              }
+              
+          
+        </script>
+    </body>
+</html>

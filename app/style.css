@@ -1,0 +1,458 @@
+
+body{
+   background: rgb(142, 152, 156);
+}
+
+#welcome{
+   text-align: center;
+   color: #FFF;
+   background: #eee;
+   text-shadow: 2px 2px 0 #4074b5, 2px -2px 0 #4074b5, -2px 2px 0 #4074b5, -2px -2px 0 #4074b5, 2px 0px 0 #4074b5, 0px 2px 0 #4074b5, -2px 0px 0 #4074b5, 0px -2px 0 #4074b5;
+   
+   font-size: 250%;
+}
+#lightbulb, #toggle {
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
+   margin-top: 1em;
+   margin-bottom: 1em;   
+}
+
+.header{
+   
+   width: 100%;
+   background: rgb(173, 173, 173);
+}
+.header > #title {
+
+   text-align: center;   
+   font-family: Impact, Charcoal, sans-serif;
+   font-size: 30px;
+   text-decoration: none;
+   font-style: normal;
+   font-variant: normal;
+   text-transform: uppercase;
+   animation: offline 3s infinite;
+}
+@keyframes offline{
+   0%{
+      color:  rgb(85, 14, 14);
+   }
+   50%{
+      color: red;
+   }
+   100%{
+      color: rgb(85, 14, 14);
+   }
+}
+
+@keyframes online{
+   0%{
+      color: #48FF1F;
+   }
+   50%{
+      color: rgb(46, 177, 17);
+   }
+   100%{
+      color: #48FF1F;
+   }
+}
+
+
+#photoresistor{
+   position: absolute;
+   align-items: center;
+   width: 95%;
+   height: 90px;
+   top:450px;
+    /* border: 1px solid black;  */
+   background: rgb(142, 152, 156);
+}
+
+.info_label{
+   margin-top: 0px;
+   text-align: center;   
+   font-family: Verdana, Geneva, sans-serif;
+   font-size: 20px;
+   letter-spacing: 3.8px;
+   word-spacing: 1.2px;
+   color: #66FFC0;
+   font-weight: normal;
+   text-decoration: none;
+   font-style: normal;
+   font-variant: small-caps;
+   text-transform: none;
+}
+
+.info_label_hum{
+   margin-top: 10px;
+   text-align: center;   
+   font-family: Verdana, Geneva, sans-serif;
+   font-size: 15px;
+   letter-spacing: 3.8px;
+   word-spacing: 1.2px;
+   color: #66FFC0;
+   font-weight: normal;
+   text-decoration: none;
+   font-style: normal;
+   font-variant: small-caps;
+   text-transform: none;
+}
+.info_label_hum_soil{
+   margin-top: 10px;
+   padding-right: 30px;
+   text-align: center;  
+   font-family: Verdana, Geneva, sans-serif;
+   font-size: 15px;
+   letter-spacing: 3.8px;
+   word-spacing: 1.2px;
+   color: #66FFC0;
+   font-weight: normal;
+   text-decoration: none;
+   font-style: normal;
+   font-variant: small-caps;
+   text-transform: none;
+}
+
+
+.outer-wrapper{  
+   margin: 0px 0px;
+   padding: 15px 20px;
+   min-width: 100px;
+}
+
+.column-wrapper{
+   margin: 0px 0px;
+   height: 60px;
+   width: 300px;
+   background: #CFD8DC; 
+   margin: 0 auto;
+}
+
+.column{
+   width: 0%;
+   height: 60px;
+   background: #90A4AE;
+}
+
+#image_show{
+   margin-top:80px;
+   margin-left:20px;
+   width: 400px;
+   height: 150px;
+}
+
+.image_picker_image {
+   margin-left: 12px;
+   display: inline-block;
+   float: left;
+   width: 320px;
+   height: 160px;
+   background-color: rgb(214, 222, 226);
+
+}
+#img1 > img{
+   width: 250px;
+   height: 130px;
+   margin-left: 30px;
+   margin-top: 10px;
+}
+#img2 > img{
+   margin-top: 9px;
+   margin-bottom: 3px;
+   margin-left: 26px;
+   margin-right: 3px;
+   max-width:82%;
+   max-height:99%;
+}
+#img3 > img{
+   margin-top: 9px;
+   margin-bottom: 3px;
+   margin-left: 26px;
+   margin-right: 3px;
+   width: 265px;
+   height: 150px;
+}
+
+.image_picker_image > img{
+   margin-top: 9px;
+   margin-bottom: 3px;
+   margin-left: 10px;
+   margin-right: 3px;
+   max-width:99%;
+   max-height:99%;
+}
+
+@keyframes selected{
+   0%{
+      background-color: #CFD8DC;
+   }
+   100%{
+   background-color : rgb(26, 160, 37);
+   }
+}
+@keyframes unselected{
+   0%{
+      background-color: #CFD8DC;
+   }
+   100%{
+   background-color : #CFD8DC;
+   }
+}
+
+#confirm_button{
+   margin-left: 12px;
+   border-radius: 4px;
+   width: 320px;
+   cursor:pointer;
+   color:#528009;
+   font-family:Arial;
+   font-size:40px;
+   font-weight:bold;
+   text-decoration:none;
+   text-shadow: #528009;
+
+}
+
+
+#hum_soil{
+   position: absolute;
+   left:190px;
+   width: 50%;
+   height: 180px;
+   top: 60px;
+   /* border: 1px solid black;  */
+   background: rgb(142, 152, 156);
+}
+
+#hum_ambiente{
+   position: absolute;
+   
+   width: 45%;
+   height: 180px;
+   top: 60px;
+   left:20px;
+   /* border: 1px solid black;  */
+   background: rgb(142, 152, 156);
+}
+
+#temperature{
+   position: absolute;
+   align-items: center;
+   width: 45%;
+   height: 180px;
+   top: 260px;
+   left:13px;
+   /* border: 1px solid black; */
+   background: rgb(142, 152, 156);
+
+}
+
+ 
+/*TEMPERATURA ENERGIA */
+#grad_text{
+   font-family: "Arial Black", Gadget, sans-serif;
+   font-size: 70px;
+   margin-top:39px;
+   margin-left: 10px;
+   letter-spacing: -1.2px;
+   word-spacing: -3.6px;
+   color: #1d1c1c;
+   font-weight: 700;
+   text-decoration: none solid rgb(68, 68, 68);
+   font-style: normal;
+   font-variant: normal;
+   text-transform: uppercase;
+}
+
+/* water level */
+#water_level{
+      position: absolute;
+      align-items: center;
+      width: 50%;
+      height: 180px;
+      top: 240px;
+      right:15px;
+      /* border: 1px solid black;  */
+      background: rgb(142, 152, 156);
+   
+}
+#img_acqua{
+   position: absolute;
+   margin-top: 9px;
+   margin-bottom: 3px;
+   margin-left: 62px;
+   margin-right: 3px;
+   max-width:50%;
+   max-height:45%;
+}
+#allarme{
+   opacity: 0;
+   position: absolute;
+   margin-top: 9px;
+   margin-bottom: 3px;
+   margin-left: 55px;
+   margin-right: 3px;
+   max-width:50%;
+   max-height:45%;
+   
+}
+#off,#on{
+   
+   position: absolute;
+   margin-top: 95px;
+   margin-bottom: 3px;
+   margin-left: 49px;
+   margin-right: 3px;
+   max-width:50%;
+   max-height:55%;
+}
+
+#annaffia{
+   max-width:50%;
+   max-height:55%;
+   padding-left:110px;
+   padding-top: 5px;
+}
+
+@keyframes blink{
+   0%{
+      opacity: 0;
+   }
+   100%{
+      opacity: 1;
+   }
+}
+
+
+/* AUTOMATIC SLIDER */
+/* The switch - the box around the slider */
+.switch {
+   margin-top: 530px;
+   position: relative;
+   display: inline-block;
+   width: 60px;
+   height: 34px;
+ }
+ 
+ /* Hide default HTML checkbox */
+ .switch input {
+   opacity: 0;
+   width: 0;
+   height: 0;
+ }
+ 
+ /* The slider */
+ .slider {
+   position: absolute;
+   cursor: pointer;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   background-color: #ccc;
+   -webkit-transition: .4s;
+   transition: .4s;
+ }
+ 
+ .slider:before {
+   position: absolute;
+   content: "";
+   height: 26px;
+   width: 26px;
+   left: 4px;
+   bottom: 4px;
+   background-color: white;
+   -webkit-transition: .4s;
+   transition: .4s;
+ }
+ 
+ input:checked + .slider {
+   background-color: #2196F3;
+ }
+ 
+ input:focus + .slider {
+   box-shadow: 0 0 1px #2196F3;
+ }
+ 
+ input:checked + .slider:before {
+   -webkit-transform: translateX(26px);
+   -ms-transform: translateX(26px);
+   transform: translateX(26px);
+ }
+ 
+ /* Rounded sliders */
+ .slider.round {
+   border-radius: 34px;
+ }
+ 
+ .slider.round:before {
+   border-radius: 50%;
+ }
+
+ .btn-toolset {
+   display: inline-block;
+   text-align: center;
+   white-space: nowrap;
+   color: #FFFFFF;
+   text-decoration: none;
+   line-height: 1.2;
+   font-weight: normal;
+   font-family: sans-serif;
+   font-size: 18px;
+   background-color: #007BFF;
+   border-radius: 30px;
+   padding: 4px 50px;
+   border: 5px solid #006FE6;
+   cursor: pointer;
+  }
+  .btn-toolset:hover {
+   background-color: #0063CC;
+   border-color: #0056B3;
+  }
+  .btn-toolset > strong {
+   font-size: 24px;
+  }
+   
+ #manual_mode{
+   position: absolute;
+   width: auto;
+   height: auto;
+   left:80px;
+   font-size:20px;
+   top: 584px;
+   text-align: center;  
+   font-family: Verdana, Geneva, sans-serif;
+   font-size: 15px;
+   letter-spacing: 3.8px;
+   word-spacing: 1.2px;
+   color: #66FFC0;
+   font-weight: normal;
+   text-decoration: none;
+   font-style: normal;
+   font-variant: small-caps;
+   text-transform: none;
+   
+ }
+
+ #reload{
+    width: 10%;
+    height: 5%;
+    position: absolute;
+    right: 10px;
+    top:570px;
+    animation-iteration-count: infinite;
+ }
+ @keyframes rotate{
+   0%{
+      transform: rotate(0deg);
+   }
+   50%{
+      transform: rotate(360deg);
+   }
+   100%{    
+      transform: rotate(-360deg);    
+   }
+
+ }
