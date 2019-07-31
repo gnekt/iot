@@ -1,0 +1,20 @@
+<data>
+   <pianta>
+		<name>pianta interni</name>
+		<luce_min>3000</luce_min>
+		<hum_terreno_max>50</hum_terreno_max>
+		<hum_terreno_min>40</hum_terreno_min>
+	</pianta>
+	<pianta>
+		<name>pianta esterni</name>
+		<luce_min>0</luce_min>
+		<hum_terreno_max>60</hum_terreno_max>
+		<hum_terreno_min>50</hum_terreno_min>
+	</pianta>
+	<pianta>
+		<name>pianta grassa</name>
+		<luce_min>1800</luce_min>
+		<hum_terreno_max>30</hum_terreno_max>
+		<hum_terreno_min>10</hum_terreno_min>
+	</pianta>
+</data>
