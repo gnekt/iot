@@ -7,7 +7,7 @@ The final project consists in creating an intelligent plant pot.
 # Devices
 In order to carry out the project, it was necessary to use the following devices:
 1) ESP 32
-2) HTU 221 sensor (Driver written by me)
+2) HTU 221 sensor 
 3) GL55 photoresistor
 4) 4-channel switch
 5) Soil moisture sensor
